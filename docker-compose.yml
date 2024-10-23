@@ -62,7 +62,7 @@ services:
       - default
 
   broker-emiter:
-    build: ../mail-broker/broker-emiter
+    build: ./mail-broker/broker-emiter
     restart: always
     environment:
       RABBIT_SERVER: rabbitmq      
@@ -73,7 +73,7 @@ services:
 
   broker-consumer:
     restart: always
-    build: ../mail-broker/broker-consumer
+    build: ./mail-broker/broker-consumer
     environment:
       RABBIT_SERVER: rabbitmq
       MAIL_SERVER: maildev
@@ -82,7 +82,7 @@ services:
 
   frontend:
     restart: always
-    build: ../frontend/
+    build: ./frontend/
     environment:
       core-api: 'http://localhost:3000'
       mail-api: 'http://localhost:5000'
